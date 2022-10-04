@@ -1,4 +1,7 @@
 package com.example.kinoxpproject.reservation.repository;
 
-public class ReservationRepository {
+import com.example.kinoxpproject.reservation.model.Reservation;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 }
