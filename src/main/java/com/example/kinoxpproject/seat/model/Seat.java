@@ -1,10 +1,10 @@
 package com.example.kinoxpproject.seat.model;
 
+import com.example.kinoxpproject.ticket.model.Ticket;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -15,6 +15,16 @@ import javax.persistence.Id;
 public class Seat {
 
     @Id
-    @GeneratedValue (GeneratedValue)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    /*
+    private boolean isReserved;
+    private int seatNumber;
+    private int row;
+     */
+    @OneToOne(mappedBy = "seat")
+    private Ticket ticket;
+
 
 }

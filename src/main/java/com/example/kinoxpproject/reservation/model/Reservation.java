@@ -1,6 +1,7 @@
 package com.example.kinoxpproject.reservation.model;
 
 
+import com.example.kinoxpproject.movie.model.Genre;
 import com.example.kinoxpproject.ticket.model.Ticket;
 import lombok.*;
 
@@ -20,8 +21,10 @@ public class Reservation {
     private Long id;
     private String email;
     private int numberOfPersons;
-    @OneToMany
+
+    @ManyToOne
     @JoinColumn(name = "ticket_id")
-    private List<Ticket> ticket;
+    private Ticket ticket;
+
 
 }

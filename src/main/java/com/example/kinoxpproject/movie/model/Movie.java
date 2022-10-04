@@ -1,15 +1,16 @@
 package com.example.kinoxpproject.movie.model;
 
 
+import com.example.kinoxpproject.show.model.Show;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @AllArgsConstructor
-@ToString
 @Entity
 public class Movie {
 
@@ -21,8 +22,12 @@ public class Movie {
     @ManyToOne
     @JoinColumn(name = "genre_id")
     private Genre genre;
-    private Long PGRating;
+
+    private int PGRating;
     private String imgURL;
     private String description;
+
+    @OneToMany(mappedBy = "movie")
+    private List<Show> showList;
 
 }
