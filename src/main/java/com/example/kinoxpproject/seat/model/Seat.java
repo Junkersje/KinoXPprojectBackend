@@ -18,13 +18,12 @@ public class Seat {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /*
-    private boolean isReserved;
-    private int seatNumber;
-    private int row;
-     */
     @OneToOne(mappedBy = "seat")
     private Ticket ticket;
+
+    private int seatNumber;
+    private int seatRow;
+    private boolean isReserved;
 
 
 }
