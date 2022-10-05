@@ -23,14 +23,13 @@ public class Ticket {
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
-
     @ManyToMany(mappedBy = "ticketList")
-    private List<Reservation> planets = new ArrayList<>();
+    private List<Reservation> reservations = new ArrayList<>();
 
-
-
-
-
-
-
+    public Ticket(int seatNumber, int price, Movie movie, List<Reservation> reservations) {
+        this.seatNumber = seatNumber;
+        this.price = price;
+        this.movie = movie;
+        this.reservations = reservations;
+    }
 }

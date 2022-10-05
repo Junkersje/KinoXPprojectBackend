@@ -32,7 +32,9 @@ public class Reservation {
     private List<Ticket> ticketList = new ArrayList<>();
 
 
-
-
-
+    public Reservation(String email, int numberOfPersons, List<Ticket> ticketList) {
+        this.email = email;
+        this.numberOfPersons = numberOfPersons;
+        this.ticketList = ticketList;
+    }
 }

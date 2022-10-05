@@ -1,10 +1,7 @@
 package com.example.kinoxpproject.theater.model;
 
 import com.example.kinoxpproject.movie.model.Movie;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -25,18 +22,11 @@ public class Theater {
     private boolean isFull;
 
 
-    @ManyToMany(mappedBy = "theaterList")
-    private List<Movie> movieList = new ArrayList<>();
 
 
-
-
-
-
-
-
-
-
-
-
+    public Theater(int numberOfSeats, int theaterNumber, boolean isFull) {
+        this.numberOfSeats = numberOfSeats;
+        this.theaterNumber = theaterNumber;
+        this.isFull = isFull;
+    }
 }

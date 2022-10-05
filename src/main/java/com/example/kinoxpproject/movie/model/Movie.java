@@ -32,19 +32,13 @@ public class Movie {
     @JoinColumn(name = "theater_id")
     private Theater theater;
 
-    @ManyToMany(cascade = {
-            CascadeType.MERGE
-    })
-    @JoinTable(name = "movie_theater_id",
-            joinColumns = @JoinColumn(name = "theater_id"),
-            inverseJoinColumns = @JoinColumn(name = "movie_id"))
-    private List<Theater> theaterList = new ArrayList<>();
-
-
-
-
-
-
-
-
+    public Movie(String title, String playTime, MovieGenre movieGenre, int PGRating, String description, String date, Theater theater) {
+        this.title = title;
+        this.playTime = playTime;
+        this.movieGenre = movieGenre;
+        this.PGRating = PGRating;
+        this.description = description;
+        this.date = date;
+        this.theater = theater;
+    }
 }
