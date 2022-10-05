@@ -1,10 +1,14 @@
 package com.example.kinoxpproject.movie.model;
 
 
-import com.example.kinoxpproject.show.model.Show;
+
+import com.example.kinoxpproject.reservation.repository.ticket.model.Ticket;
+import com.example.kinoxpproject.theater.model.Theater;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -19,15 +23,30 @@ public class Movie {
     private Long id;
     private String title;
     private String playTime;
-    @ManyToOne
-    @JoinColumn(name = "genre_id")
-    private Genre genre;
-
+    @Enumerated(EnumType.STRING)
+    private MovieGenre movieGenre;
     private int PGRating;
     private String imgURL;
     private String description;
+    private String date;
 
-    @OneToMany(mappedBy = "movie")
-    private List<Show> showList;
+    @ManyToOne
+    @JoinColumn(name = "theater_id")
+    private Theater theater;
+
+    @ManyToMany(cascade = {
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "movie_theater_id",
+            joinColumns = @JoinColumn(name = "theater_id"),
+            inverseJoinColumns = @JoinColumn(name = "movie_id"))
+    private List<Theater> theaterList = new ArrayList<>();
+
+
+
+
+
+
+
 
 }

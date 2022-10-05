@@ -1,11 +1,11 @@
 package com.example.kinoxpproject.reservation.model;
 
 
-import com.example.kinoxpproject.movie.model.Genre;
-import com.example.kinoxpproject.ticket.model.Ticket;
+import com.example.kinoxpproject.reservation.repository.ticket.model.Ticket;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -22,9 +22,17 @@ public class Reservation {
     private String email;
     private int numberOfPersons;
 
-    @ManyToOne
-    @JoinColumn(name = "ticket_id")
-    private Ticket ticket;
+
+    @ManyToMany(cascade = {
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "reservation_ticket_id",
+            joinColumns = @JoinColumn(name = "reservation_id"),
+            inverseJoinColumns = @JoinColumn(name = "ticket_id"))
+    private List<Ticket> ticketList = new ArrayList<>();
+
+
+
 
 
 }
