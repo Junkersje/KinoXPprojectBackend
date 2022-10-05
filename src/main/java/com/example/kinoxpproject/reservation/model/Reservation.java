@@ -1,7 +1,7 @@
 package com.example.kinoxpproject.reservation.model;
 
 
-import com.example.kinoxpproject.reservation.repository.ticket.model.Ticket;
+import com.example.kinoxpproject.ticket.model.Ticket;
 import lombok.*;
 
 import javax.persistence.*;

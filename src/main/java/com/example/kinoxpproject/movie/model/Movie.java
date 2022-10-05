@@ -2,12 +2,10 @@ package com.example.kinoxpproject.movie.model;
 
 
 
-import com.example.kinoxpproject.reservation.repository.ticket.model.Ticket;
 import com.example.kinoxpproject.theater.model.Theater;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 

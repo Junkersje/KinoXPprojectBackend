@@ -1,4 +1,4 @@
-package com.example.kinoxpproject.reservation.repository.ticket.model;
+package com.example.kinoxpproject.ticket.model;
 import com.example.kinoxpproject.movie.model.Movie;
 import com.example.kinoxpproject.reservation.model.Reservation;
 
