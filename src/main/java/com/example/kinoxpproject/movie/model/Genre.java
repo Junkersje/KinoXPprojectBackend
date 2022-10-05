@@ -3,7 +3,7 @@ package com.example.kinoxpproject.movie.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,6 +18,7 @@ public class Genre {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private String genre;
+
     @OneToMany(mappedBy = "genre")
     private List<Movie> movies;
 
