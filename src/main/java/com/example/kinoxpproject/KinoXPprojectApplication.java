@@ -47,7 +47,7 @@ public class KinoXPprojectApplication {
 
             //add movies
             String movie1Description = "John Wick 5 er efterfølgeren til den ikke eksisterende 4er, hvor makkeren bliver genoplivet for tredje gang";
-            String movie2Description = "John Wick 6 er efterfølgeren til den ikke eksisterende 5er, hvor makkeren bliver genoplivet for fjerde gang";
+            String movie2Description = "Børnebogen filmatiseret";
             movies.add(new Movie("John Wick 5", "2t 22m", MovieGenre.ACTION, 18, movie1Description, "d. 24.dec : 20:00", theaters.get(0)));
             movies.add(new Movie("John Wick 6", "1t 05m", MovieGenre.ACTION, 18, movie2Description, "d. 23.dec : 20:00", theaters.get(0)));
             movies.add(new Movie("J. Leth biografi", "0t 69m", MovieGenre.COMEDY, 18, movie2Description, "d. 2.feb : 23:00", theaters.get(1)));
