@@ -12,7 +12,5 @@ public class KinoXPprojectApplication {
         SpringApplication.run(KinoXPprojectApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner importData(); // smid repo ind her
 
 }
