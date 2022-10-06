@@ -27,7 +27,6 @@ public class MovieService {
     }
 
     public Movie updateMovie(Long id, Movie movie){
-         movie = movieRepository.findById(id).orElseThrow(() -> new IllegalStateException("no movie with that " + id));
         return movieRepository.save(movie);
     }
 
