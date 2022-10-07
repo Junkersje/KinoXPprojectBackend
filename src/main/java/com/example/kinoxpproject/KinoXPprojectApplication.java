@@ -47,6 +47,7 @@ public class KinoXPprojectApplication {
             //The only two theaters
             theaters.add(new Theater(240, 1));
             theaters.add(new Theater(400, 2));
+            theaters.add(new Theater(5, 3));
             theaterRepository.saveAll(theaters);
 
             //add movies
@@ -55,14 +56,22 @@ public class KinoXPprojectApplication {
             movies.add(new Movie("John Wick 5", "2t 22m", MovieGenre.ACTION, 16, movie1Description, "d. 24.dec : 20:00", theaters.get(0), true));
             movies.add(new Movie("John Wick 6", "1t 05m", MovieGenre.ACTION, 17, movie2Description, "d. 23.dec : 20:00", theaters.get(0), true));
             movies.add(new Movie("J. Leth biografi", "0t 69m", MovieGenre.COMEDY, 18, movie2Description, "d. 2.feb : 23:00", theaters.get(1), true));
+
+            //test movie for sal 3
+            String testMovieDescription = "Ligegyldigt";
+            movies.add(new Movie("titel", "10m", MovieGenre.HORROR, 23, testMovieDescription, "dagens dato", theaters.get(2), true));
             movieRepository.saveAll(movies);
 
+            final List<Ticket> ticketsForSal3 = new ArrayList<>();
+            //test tickets for sal 3
+            ticketsForSal3.add(new Ticket(1, 1, 89, movies.get(3), reservations));
+            ticketsForSal3.add(new Ticket(47,12, 89, movies.get(3), reservations));
+            ticketsForSal3.add(new Ticket(41, 10, 89, movies.get(3), reservations));
+            ticketsForSal3.add(new Ticket(42, 10, 89, movies.get(3), reservations));
+            ticketsForSal3.add(new Ticket(44, 10, 89, movies.get(3), reservations));
+            ticketsForSal3.add(new Ticket(44, 10, 89, movies.get(3), reservations));
+            ticketRepository.saveAll(ticketsForSal3);
 
-            //tickets for h2 test only
-            tickets.add(new Ticket(1, 1, 89, movies.get(0), reservations));
-            tickets.add(new Ticket(47,12, 89, movies.get(0), reservations));
-            tickets.add(new Ticket(42, 10, 89, movies.get(1), reservations));
-            ticketRepository.saveAll(tickets);
 
             //Vi bliver nødt til at dele tickets arrayet op i "tickets til sal1 og tickets til sal2" ellers får begge sale alle tickets :>
             final List<Ticket> ticketsForTheater1 = new ArrayList<>();
@@ -82,6 +91,10 @@ public class KinoXPprojectApplication {
             reservations.add(new Reservation("blaagaardbajer@påhusets.jatak", 6, ticketsForTheater1));
             reservations.add(new Reservation("2centimeter@defeater.action", 3, ticketsForTheater2));
             reservationRepository.saveAll(reservations);
+
+
+
+
         });
     }
 
