@@ -52,28 +52,28 @@ public class KinoXPprojectApplication {
             //add movies
             String movie1Description = "John Wick 5 er efterfølgeren til den ikke eksisterende 4er, hvor makkeren bliver genoplivet for tredje gang";
             String movie2Description = "Børnebogen filmatiseret";
-            movies.add(new Movie("John Wick 5", "2t 22m", MovieGenre.ACTION, 18, movie1Description, "d. 24.dec : 20:00", theaters.get(0)));
-            movies.add(new Movie("John Wick 6", "1t 05m", MovieGenre.ACTION, 18, movie2Description, "d. 23.dec : 20:00", theaters.get(0)));
+            movies.add(new Movie("John Wick 5", "2t 22m", MovieGenre.ACTION, 16, movie1Description, "d. 24.dec : 20:00", theaters.get(0)));
+            movies.add(new Movie("John Wick 6", "1t 05m", MovieGenre.ACTION, 17, movie2Description, "d. 23.dec : 20:00", theaters.get(0)));
             movies.add(new Movie("J. Leth biografi", "0t 69m", MovieGenre.COMEDY, 18, movie2Description, "d. 2.feb : 23:00", theaters.get(1)));
             movieRepository.saveAll(movies);
 
 
             //tickets for h2 test only
-            tickets.add(new Ticket(1, 89, movies.get(0), reservations));
-            tickets.add(new Ticket(47, 89, movies.get(0), reservations));
-            tickets.add(new Ticket(42, 89, movies.get(1), reservations));
+            tickets.add(new Ticket(1, 1, 89, movies.get(0), reservations));
+            tickets.add(new Ticket(47,12, 89, movies.get(0), reservations));
+            tickets.add(new Ticket(42, 10, 89, movies.get(1), reservations));
             ticketRepository.saveAll(tickets);
 
             //Vi bliver nødt til at dele tickets arrayet op i "tickets til sal1 og tickets til sal2" ellers får begge sale alle tickets :>
             final List<Ticket> ticketsForTheater1 = new ArrayList<>();
             final List<Ticket> ticketsForTheater2 = new ArrayList<>();
-            ticketsForTheater1.add(new Ticket(1,2, movies.get(1), reservations));
-            ticketsForTheater1.add(new Ticket(11,22, movies.get(0), reservations));
-            ticketsForTheater2.add(new Ticket(12, 123, movies.get(1), reservations));
-            ticketsForTheater2.add(new Ticket(123, 12345, movies.get(0), reservations));
-            ticketsForTheater2.add(new Ticket(124, 123456, movies.get(0), reservations));
-            ticketsForTheater2.add(new Ticket(125, 1234567, movies.get(0), reservations));
-            ticketsForTheater2.add(new Ticket(126, 12345678, movies.get(0), reservations));
+            ticketsForTheater1.add(new Ticket(1, 1,2, movies.get(1), reservations));
+            ticketsForTheater1.add(new Ticket(11, 11, 22, movies.get(0), reservations));
+            ticketsForTheater2.add(new Ticket(12, 12, 123, movies.get(1), reservations));
+            ticketsForTheater2.add(new Ticket(123, 1, 12345, movies.get(0), reservations));
+            ticketsForTheater2.add(new Ticket(124, 1, 123456, movies.get(0), reservations));
+            ticketsForTheater2.add(new Ticket(125, 1, 1234567, movies.get(0), reservations));
+            ticketsForTheater2.add(new Ticket(126, 1, 12345678, movies.get(0), reservations));
             ticketRepository.saveAll(ticketsForTheater1);
             ticketRepository.saveAll(ticketsForTheater2);
 

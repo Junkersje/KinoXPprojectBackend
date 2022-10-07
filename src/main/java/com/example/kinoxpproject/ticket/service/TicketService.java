@@ -5,6 +5,7 @@ import com.example.kinoxpproject.ticket.model.Ticket;
 import com.example.kinoxpproject.ticket.repository.TicketRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -38,6 +39,17 @@ public class TicketService {
             throw new IllegalStateException("does not exists" + id);
         }
         ticketRepository.deleteById(id);
+    }
+
+    public List<Ticket> findAllTicketsForMovieID(Long id){
+        ArrayList<Ticket> tempList = new ArrayList<>(ticketRepository.findAll());
+        ArrayList<Ticket> returnList = new ArrayList<>();
+        for (int i = 0; i < tempList.size(); i++) {
+            if (tempList.get(i).getMovie().getId() == id){
+                returnList.add(tempList.get(i));
+            }
+        }
+        return returnList;
     }
 
 }

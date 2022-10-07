@@ -29,6 +29,11 @@ public class TicketController {
         return ResponseEntity.ok().body(ticketService.findTicketById(id));
     }
 
+    @GetMapping("/ticketlisttest/{id}")
+    public ResponseEntity<List<Ticket>> getAllTicketsByMovieId(@PathVariable("id") Long id){
+        return ResponseEntity.ok().body(ticketService.findAllTicketsForMovieID(id));
+    }
+
     @PostMapping
     public ResponseEntity<Ticket> createTicket(@Valid @RequestBody Ticket ticket){
         return ResponseEntity.ok().body(ticketService.createTicket(ticket));
@@ -44,4 +49,5 @@ public class TicketController {
         ticketService.deleteTicket(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 }

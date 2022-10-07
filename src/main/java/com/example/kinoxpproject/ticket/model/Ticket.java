@@ -17,6 +17,9 @@ public class Ticket {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private int seatNumber;
+
+    private int seatRow;
+
     private int price;
 
     @ManyToOne
@@ -26,8 +29,9 @@ public class Ticket {
     @ManyToMany(mappedBy = "ticketList")
     private List<Reservation> reservations = new ArrayList<>();
 
-    public Ticket(int seatNumber, int price, Movie movie, List<Reservation> reservations) {
+    public Ticket(int seatNumber, int seatRow, int price, Movie movie, List<Reservation> reservations) {
         this.seatNumber = seatNumber;
+        this.seatRow = seatRow;
         this.price = price;
         this.movie = movie;
         this.reservations = reservations;
