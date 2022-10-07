@@ -45,16 +45,16 @@ public class KinoXPprojectApplication {
             final List<Reservation> reservations = new ArrayList<>();
 
             //The only two theaters
-            theaters.add(new Theater(240, 1, false));
-            theaters.add(new Theater(400, 2, false));
+            theaters.add(new Theater(240, 1));
+            theaters.add(new Theater(400, 2));
             theaterRepository.saveAll(theaters);
 
             //add movies
             String movie1Description = "John Wick 5 er efterfølgeren til den ikke eksisterende 4er, hvor makkeren bliver genoplivet for tredje gang";
             String movie2Description = "Børnebogen filmatiseret";
-            movies.add(new Movie("John Wick 5", "2t 22m", MovieGenre.ACTION, 16, movie1Description, "d. 24.dec : 20:00", theaters.get(0)));
-            movies.add(new Movie("John Wick 6", "1t 05m", MovieGenre.ACTION, 17, movie2Description, "d. 23.dec : 20:00", theaters.get(0)));
-            movies.add(new Movie("J. Leth biografi", "0t 69m", MovieGenre.COMEDY, 18, movie2Description, "d. 2.feb : 23:00", theaters.get(1)));
+            movies.add(new Movie("John Wick 5", "2t 22m", MovieGenre.ACTION, 16, movie1Description, "d. 24.dec : 20:00", theaters.get(0), true));
+            movies.add(new Movie("John Wick 6", "1t 05m", MovieGenre.ACTION, 17, movie2Description, "d. 23.dec : 20:00", theaters.get(0), true));
+            movies.add(new Movie("J. Leth biografi", "0t 69m", MovieGenre.COMEDY, 18, movie2Description, "d. 2.feb : 23:00", theaters.get(1), true));
             movieRepository.saveAll(movies);
 
 

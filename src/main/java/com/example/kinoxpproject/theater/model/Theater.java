@@ -19,11 +19,9 @@ public class Theater {
     private Long id;
     private int numberOfSeats;
     private int theaterNumber;
-    private boolean isFull;
 
-    public Theater(int numberOfSeats, int theaterNumber, boolean isFull) {
+    public Theater(int numberOfSeats, int theaterNumber) {
         this.numberOfSeats = numberOfSeats;
         this.theaterNumber = theaterNumber;
-        this.isFull = isFull;
     }
 }

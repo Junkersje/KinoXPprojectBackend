@@ -4,6 +4,7 @@ import com.example.kinoxpproject.movie.dto.MovieDto;
 import com.example.kinoxpproject.movie.dto.MovieMapper;
 import com.example.kinoxpproject.movie.model.Movie;
 import com.example.kinoxpproject.movie.repository.MovieRepository;
+import com.example.kinoxpproject.ticket.service.TicketService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,10 +14,12 @@ import java.util.stream.Collectors;
 public class MovieService {
 
     private final MovieRepository movieRepository;
+    private final TicketService ticketService;
     private final MovieMapper movieMapper;
 
-    public MovieService(MovieRepository movieRepository, MovieMapper movieMapper) {
+    public MovieService(MovieRepository movieRepository, TicketService ticketService, MovieMapper movieMapper) {
         this.movieRepository = movieRepository;
+        this.ticketService = ticketService;
         this.movieMapper = movieMapper;
     }
 
@@ -55,4 +58,14 @@ public class MovieService {
         }
         movieRepository.deleteById(id);
     }
+
+    public boolean checkTicketsAvailable(Long id){
+        MovieDto tempMovie = findMovieById(id);
+        if (ticketService.findAllTicketsForMovieID(id).size() >= tempMovie.getTheater().getNumberOfSeats()){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }

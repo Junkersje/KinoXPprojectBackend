@@ -27,4 +27,5 @@ public class MovieDto {
     private String description;
     private String date;
     private Theater theater;
+    private boolean ticketsAvailable;
 }
