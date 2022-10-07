@@ -2,6 +2,7 @@ package com.example.kinoxpproject.ticket.model;
 import com.example.kinoxpproject.movie.model.Movie;
 import com.example.kinoxpproject.reservation.model.Reservation;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class Ticket {
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "ticketList")
     private List<Reservation> reservations = new ArrayList<>();
 

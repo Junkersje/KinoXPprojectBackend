@@ -1,6 +1,7 @@
 package com.example.kinoxpproject.reservation.controller;
 
 import com.example.kinoxpproject.movie.model.Movie;
+import com.example.kinoxpproject.reservation.dto.ReservationDto;
 import com.example.kinoxpproject.reservation.model.Reservation;
 import com.example.kinoxpproject.reservation.service.ReservationService;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,7 @@ public class ReservationController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Reservation>> getAllReservation(){
+    public ResponseEntity<List<ReservationDto>> getAllReservation(){
         return ResponseEntity.ok().body(reservationService.findAllReservations());
     }
     @GetMapping("/{id}")
