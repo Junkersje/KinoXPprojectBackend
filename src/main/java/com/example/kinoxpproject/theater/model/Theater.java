@@ -21,9 +21,6 @@ public class Theater {
     private int theaterNumber;
     private boolean isFull;
 
-
-
-
     public Theater(int numberOfSeats, int theaterNumber, boolean isFull) {
         this.numberOfSeats = numberOfSeats;
         this.theaterNumber = theaterNumber;
