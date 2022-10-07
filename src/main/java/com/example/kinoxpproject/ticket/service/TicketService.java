@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TicketService {
@@ -42,14 +43,12 @@ public class TicketService {
     }
 
     public List<Ticket> findAllTicketsForMovieID(Long id){
-        ArrayList<Ticket> tempList = new ArrayList<>(ticketRepository.findAll());
-        ArrayList<Ticket> returnList = new ArrayList<>();
-        for (Ticket ticket : tempList) {
-            if (ticket.getMovie().getId().equals(id)) {
-                returnList.add(ticket);
-            }
-        }
-        return returnList;
+        return ticketRepository
+             .findAll()
+             .stream()
+             .filter(ticket -> ticket.getMovie().getId().equals(id))
+             .collect(Collectors.toList());
+
     }
 
 }
