@@ -1,5 +1,6 @@
 package com.example.kinoxpproject.movie.controller;
 
+import com.example.kinoxpproject.movie.dto.MovieDto;
 import com.example.kinoxpproject.movie.model.Movie;
 import com.example.kinoxpproject.movie.service.MovieService;
 import org.springframework.http.HttpStatus;
@@ -21,22 +22,22 @@ public class MovieController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Movie>> getAllMovies(){
+    public ResponseEntity<List<MovieDto>> getAllMovies(){
         return ResponseEntity.ok().body(movieService.findAllMovies());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Movie> findById(@PathVariable("id") Long id){
+    public ResponseEntity<MovieDto> findById(@PathVariable("id") Long id){
         return ResponseEntity.ok().body(movieService.findMovieById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Movie> createMovie(@Valid @RequestBody Movie movie){
-        return ResponseEntity.ok().body(movieService.createMovie(movie));
+    public ResponseEntity<MovieDto> createMovie(@Valid @RequestBody MovieDto movieDto){
+        return ResponseEntity.ok().body(movieService.createMovie(movieDto));
     }
 
     @PutMapping (value = "/{id}")
-    ResponseEntity<Movie> update(@PathVariable("id") Long id, @Valid @RequestBody Movie movie){
-        return ResponseEntity.ok().body(movieService.updateMovie(id,movie));
+    ResponseEntity<MovieDto> update(@PathVariable("id") Long id, @Valid @RequestBody MovieDto movieDto){
+        return ResponseEntity.ok().body(movieService.updateMovie(id,movieDto));
     }
 
     @DeleteMapping("/{id}")

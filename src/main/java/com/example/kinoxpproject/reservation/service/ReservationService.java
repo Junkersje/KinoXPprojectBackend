@@ -1,22 +1,30 @@
 package com.example.kinoxpproject.reservation.service;
 
-import com.example.kinoxpproject.movie.model.Movie;
+import com.example.kinoxpproject.reservation.dto.ReservationDto;
+import com.example.kinoxpproject.reservation.dto.ReservationMapper;
 import com.example.kinoxpproject.reservation.model.Reservation;
 import com.example.kinoxpproject.reservation.repository.ReservationRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ReservationService {
 
    private final ReservationRepository reservationRepository;
+   private final ReservationMapper reservationMapper;
 
-    public ReservationService(ReservationRepository reservationRepository) {
+    public ReservationService(ReservationRepository reservationRepository, ReservationMapper reservationMapper) {
         this.reservationRepository = reservationRepository;
+        this.reservationMapper = reservationMapper;
     }
-    public List<Reservation> findAllReservations(){
-        return reservationRepository.findAll();
+    public List<ReservationDto> findAllReservations(){
+        return reservationRepository
+                .findAll()
+                .stream()
+                .map(reservationMapper::reservationToDto)
+                .collect(Collectors.toList());
     }
 
     public Reservation findReservationById(Long id){

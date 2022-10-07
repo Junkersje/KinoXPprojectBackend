@@ -9,8 +9,7 @@ import com.example.kinoxpproject.theater.model.Theater;
 import com.example.kinoxpproject.theater.repository.TheaterRepository;
 import com.example.kinoxpproject.ticket.model.Ticket;
 import com.example.kinoxpproject.ticket.repository.TicketRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,7 +21,12 @@ import java.util.List;
 @SpringBootApplication
 public class KinoXPprojectApplication {
 
-    private static final Logger log = LoggerFactory.getLogger(KinoXPprojectApplication.class);
+    @Bean
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
+    }
+
+
 
     public static void main(String[] args) {
         SpringApplication.run(KinoXPprojectApplication.class, args);
