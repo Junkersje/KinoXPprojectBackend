@@ -44,9 +44,9 @@ public class TicketService {
     public List<Ticket> findAllTicketsForMovieID(Long id){
         ArrayList<Ticket> tempList = new ArrayList<>(ticketRepository.findAll());
         ArrayList<Ticket> returnList = new ArrayList<>();
-        for (int i = 0; i < tempList.size(); i++) {
-            if (tempList.get(i).getMovie().getId() == id){
-                returnList.add(tempList.get(i));
+        for (Ticket ticket : tempList) {
+            if (ticket.getMovie().getId().equals(id)) {
+                returnList.add(ticket);
             }
         }
         return returnList;
