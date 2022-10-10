@@ -1,7 +1,6 @@
 package com.example.kinoxpproject.movie.controller;
 
 import com.example.kinoxpproject.movie.dto.MovieDto;
-import com.example.kinoxpproject.movie.model.Movie;
 import com.example.kinoxpproject.movie.service.MovieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +27,12 @@ public class MovieController {
     @GetMapping("/{id}")
     public ResponseEntity<MovieDto> findById(@PathVariable("id") Long id){
         return ResponseEntity.ok().body(movieService.findMovieById(id));
+    }
+
+    @GetMapping("/availabletickets/{id}")
+    public ResponseEntity<Boolean> checkAvailabletickets(@PathVariable("id") Long id){
+
+        return ResponseEntity.ok().body(movieService.checkTicketsAvailable(id));
     }
 
     @PostMapping
