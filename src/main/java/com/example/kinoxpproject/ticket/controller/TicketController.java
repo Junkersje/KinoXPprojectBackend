@@ -1,6 +1,7 @@
 package com.example.kinoxpproject.ticket.controller;
 
 import com.example.kinoxpproject.reservation.model.Reservation;
+import com.example.kinoxpproject.ticket.dto.TicketDto;
 import com.example.kinoxpproject.ticket.model.Ticket;
 import com.example.kinoxpproject.ticket.service.TicketService;
 import org.springframework.http.HttpStatus;
@@ -21,27 +22,27 @@ public class TicketController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Ticket>> getAllTickets(){
+    public ResponseEntity<List<TicketDto>> getAllTickets(){
         return ResponseEntity.ok().body(ticketService.findAllTickets());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Ticket> findById(@PathVariable("id") Long id){
+    public ResponseEntity<TicketDto> findById(@PathVariable("id") Long id){
         return ResponseEntity.ok().body(ticketService.findTicketById(id));
     }
 
     @GetMapping("/ticketlisttest/{id}")
-    public ResponseEntity<List<Ticket>> getAllTicketsByMovieId(@PathVariable("id") Long id){
+    public ResponseEntity<List<TicketDto>> getAllTicketsByMovieId(@PathVariable("id") Long id){
         return ResponseEntity.ok().body(ticketService.findAllTicketsForMovieID(id));
     }
 
     @PostMapping
-    public ResponseEntity<Ticket> createTicket(@Valid @RequestBody Ticket ticket){
-        return ResponseEntity.ok().body(ticketService.createTicket(ticket));
+    public ResponseEntity<TicketDto> createTicket(@Valid @RequestBody TicketDto ticketDto){
+        return ResponseEntity.ok().body(ticketService.createTicket(ticketDto));
     }
 
     @PutMapping(value = "/{id}")
-    ResponseEntity<Ticket> updateTicket(@PathVariable("id") Long id, @Valid @RequestBody Ticket ticket){
-        return ResponseEntity.ok().body(ticketService.updateTicket(id,ticket));
+    ResponseEntity<TicketDto> updateTicket(@PathVariable("id") Long id, @Valid @RequestBody TicketDto ticketDto){
+        return ResponseEntity.ok().body(ticketService.updateTicket(id,ticketDto));
     }
 
     @DeleteMapping("/{id}")

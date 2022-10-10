@@ -27,18 +27,18 @@ public class ReservationController {
         return ResponseEntity.ok().body(reservationService.findAllReservations());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Reservation> findById(@PathVariable("id") Long id){
+    public ResponseEntity<ReservationDto> findById(@PathVariable("id") Long id){
         return ResponseEntity.ok().body(reservationService.findReservationById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Reservation> createReservation(@Valid @RequestBody Reservation reservation){
-        return ResponseEntity.ok().body(reservationService.createReservation(reservation));
+    public ResponseEntity<ReservationDto> createReservation(@Valid @RequestBody ReservationDto reservationDto){
+        return ResponseEntity.ok().body(reservationService.createReservation(reservationDto));
     }
 
     @PutMapping (value = "/{id}")
-    ResponseEntity<Reservation> updateReservation(@PathVariable("id") Long id, @Valid @RequestBody Reservation reservation){
-        return ResponseEntity.ok().body(reservationService.updateReservation(id,reservation));
+    ResponseEntity<ReservationDto> updateReservation(@PathVariable("id") Long id, @Valid @RequestBody ReservationDto reservationDto){
+        return ResponseEntity.ok().body(reservationService.updateReservation(id,reservationDto));
     }
 
     @DeleteMapping("/{id}")

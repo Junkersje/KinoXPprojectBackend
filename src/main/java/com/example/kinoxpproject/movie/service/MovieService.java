@@ -33,7 +33,7 @@ public class MovieService {
 
     public MovieDto findMovieById(Long id){
         Movie movie = movieRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException("no beer with that" + id));
+                .orElseThrow(() -> new IllegalStateException("no movie with that" + id));
         return movieMapper.movieToDto(movie);
     }
 
@@ -44,7 +44,7 @@ public class MovieService {
 
     public MovieDto updateMovie(Long id, MovieDto movieDto){
         Movie movie = movieRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException("no beer with that" + id));
+                .orElseThrow(() -> new IllegalStateException("no movie with that" + id));
         movie.setId(movieDto.getId());
         movie.setTitle(movieDto.getTitle());
         movieRepository.save(movie);

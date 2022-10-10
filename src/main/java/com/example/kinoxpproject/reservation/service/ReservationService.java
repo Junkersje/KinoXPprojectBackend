@@ -1,5 +1,6 @@
 package com.example.kinoxpproject.reservation.service;
 
+import com.example.kinoxpproject.movie.model.Movie;
 import com.example.kinoxpproject.reservation.dto.ReservationDto;
 import com.example.kinoxpproject.reservation.dto.ReservationMapper;
 import com.example.kinoxpproject.reservation.model.Reservation;
@@ -27,15 +28,20 @@ public class ReservationService {
                 .collect(Collectors.toList());
     }
 
-    public Reservation findReservationById(Long id){
-        return reservationRepository.findById(id).orElseThrow(() -> new IllegalStateException("no beer with that" + id));
+    public ReservationDto findReservationById(Long id){
+        Reservation reservation = reservationRepository.findById(id).orElseThrow(() -> new IllegalStateException("no reservation with that" + id));
+        return reservationMapper.reservationToDto(reservation);
     }
-    public Reservation createReservation(Reservation reservation){
-        return reservationRepository.save(reservation);
+    public ReservationDto createReservation(ReservationDto reservationDto){
+        Reservation reservation = reservationMapper.dtoToReservation(reservationDto);
+        return reservationMapper.reservationToDto(reservationRepository.save(reservation));
     }
 
-    public Reservation updateReservation(Long id, Reservation reservation){
-        return reservationRepository.save(reservation);
+    public ReservationDto updateReservation(Long id, ReservationDto reservationDto){
+        Reservation reservation = reservationRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("no reservation with that" + id));
+        reservationRepository.save(reservation);
+        return reservationMapper.reservationToDto(reservation);
     }
 
     public void deleteReservation(Long id){
