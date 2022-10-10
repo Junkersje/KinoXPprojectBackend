@@ -19,6 +19,7 @@ public class ReservationMapper {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
         return modelMapper.map(reservation,ReservationDto.class);
     }
+
     public Reservation dtoToReservation(ReservationDto reservationDto){
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
         return modelMapper.map(reservationDto,Reservation.class);

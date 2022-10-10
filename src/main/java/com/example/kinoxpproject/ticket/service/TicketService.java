@@ -48,7 +48,6 @@ public class TicketService {
              .stream()
              .filter(ticket -> ticket.getMovie().getId().equals(id))
              .collect(Collectors.toList());
-
     }
 
 }

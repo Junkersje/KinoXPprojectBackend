@@ -17,7 +17,6 @@ public class MovieMapper {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
         return modelMapper.map(movie,MovieDto.class);
     }
-
     public Movie dtoToMovie(MovieDto movieDto){
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
         return modelMapper.map(movieDto,Movie.class);
