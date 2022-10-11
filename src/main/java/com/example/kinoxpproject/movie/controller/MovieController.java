@@ -29,14 +29,14 @@ public class MovieController {
         return ResponseEntity.ok().body(movieService.findMovieById(id));
     }
 
-    /*
+
     @GetMapping("/availabletickets/{id}")
     public ResponseEntity<Boolean> checkAvailabletickets(@PathVariable("id") Long id){
 
         return ResponseEntity.ok().body(movieService.checkTicketsAvailable(id));
     }
 
-     */
+
 
 
 
