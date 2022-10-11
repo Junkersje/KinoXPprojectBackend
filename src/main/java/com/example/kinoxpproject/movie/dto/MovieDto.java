@@ -19,9 +19,7 @@ public class MovieDto {
     private String playTime;
     private MovieGenre movieGenre;
     private int PGRating;
-    private String imgURL;
     private String description;
     private String date;
-    private Theater theater;
-    private boolean ticketsAvailable;
+
 }

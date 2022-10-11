@@ -59,10 +59,14 @@ public class MovieService {
         movieRepository.deleteById(id);
     }
 
-
+/*
     public boolean checkTicketsAvailable(Long id){
         MovieDto tempMovie = findMovieById(id);
         return ticketService.findAllTicketsForMovieID(id).size() < tempMovie.getTheater().getNumberOfSeats();
     }
+
+
+ */
+
 
 }

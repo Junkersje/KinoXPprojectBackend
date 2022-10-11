@@ -11,15 +11,13 @@ import org.aspectj.lang.annotation.After;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
 class TicketServiceTest {
@@ -37,19 +35,37 @@ class TicketServiceTest {
         autoCloseable.close();
     }
 
+    /*
     @Test
     void findAllTickets() {
-
+        underTest.findAllTickets();
+        verify(ticketRepository).findAll();
     }
+
+     */
+
+    /*
 
     @Test
     void findTicketById() {
 
+        Long id = 10L;
+        given(ticketRepository.existsById(id)).willReturn(true);
+
+        underTest.deleteTicket(id);
+
+        verify(ticketRepository).deleteById(id);
+
+
 
     }
 
+     */
+
     @Test
     void createTicket() {
+   
+
     }
 
     @Test

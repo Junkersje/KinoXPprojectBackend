@@ -33,7 +33,7 @@ public class TicketService {
     }
 
     public TicketDto findTicketById(Long id){
-        Ticket ticket =  ticketRepository.findById(id).orElseThrow(() -> new IllegalStateException("no ticket with that" + id));
+        Ticket ticket =ticketRepository.findById(id).orElseThrow(() -> new IllegalStateException("no ticket with that" + id));
         return ticketMapper.ticketToDto(ticket);
     }
     public TicketDto createTicket(TicketDto ticketDto){
