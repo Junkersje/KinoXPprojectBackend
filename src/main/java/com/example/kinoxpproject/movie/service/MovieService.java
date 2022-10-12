@@ -32,8 +32,7 @@ public class MovieService {
     }
 
     public MovieDto findMovieById(Long id){
-        Movie movie = movieRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException("no beer with that" + id));
+        Movie movie = movieRepository.findById(id).orElseThrow(() -> new IllegalStateException("no movie with that " + id));
         return movieMapper.movieToDto(movie);
     }
 
@@ -43,10 +42,7 @@ public class MovieService {
     }
 
     public MovieDto updateMovie(Long id, MovieDto movieDto){
-        Movie movie = movieRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException("no beer with that" + id));
-        movie.setId(movieDto.getId());
-        movie.setTitle(movieDto.getTitle());
+        Movie movie = movieRepository.findById(id).orElseThrow(() -> new IllegalStateException("no movie with that " + id));
         movieRepository.save(movie);
         return movieMapper.movieToDto(movie);
     }
@@ -54,14 +50,19 @@ public class MovieService {
     public void deleteMovie(Long id){
         boolean checkIfMovieExists = movieRepository.existsById(id);
         if (!checkIfMovieExists){
-            throw new IllegalStateException("does not exists" + id);
+            throw new IllegalStateException("does not exists " + id);
         }
         movieRepository.deleteById(id);
     }
+
 
     public boolean checkTicketsAvailable(Long id){
         MovieDto tempMovie = findMovieById(id);
         return ticketService.findAllTicketsForMovieID(id).size() < tempMovie.getTheater().getNumberOfSeats();
     }
+
+
+
+
 
 }

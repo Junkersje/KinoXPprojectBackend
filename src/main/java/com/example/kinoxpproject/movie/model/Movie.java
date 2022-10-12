@@ -3,6 +3,7 @@ package com.example.kinoxpproject.movie.model;
 
 
 import com.example.kinoxpproject.theater.model.Theater;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -28,6 +29,7 @@ public class Movie {
     private String description;
     private String date;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "theater_id")
     private Theater theater;

@@ -92,9 +92,6 @@ public class KinoXPprojectApplication {
             reservations.add(new Reservation("2centimeter@defeater.action", 3, ticketsForTheater2));
             reservationRepository.saveAll(reservations);
 
-
-
-
         });
     }
 

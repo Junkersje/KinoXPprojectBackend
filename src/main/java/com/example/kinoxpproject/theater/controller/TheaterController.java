@@ -1,6 +1,7 @@
 package com.example.kinoxpproject.theater.controller;
 
 import com.example.kinoxpproject.reservation.model.Reservation;
+import com.example.kinoxpproject.theater.dto.TheaterDto;
 import com.example.kinoxpproject.theater.model.Theater;
 import com.example.kinoxpproject.theater.service.TheaterService;
 import org.springframework.http.HttpStatus;
@@ -21,22 +22,22 @@ public class TheaterController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Theater>> getAllTheaters(){
+    public ResponseEntity<List<TheaterDto>> getAllTheaters(){
         return ResponseEntity.ok().body(theaterService.findAllTheaters());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Theater> findById(@PathVariable("id") Long id){
+    public ResponseEntity<TheaterDto> findById(@PathVariable("id") Long id){
         return ResponseEntity.ok().body(theaterService.findTheaterById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Theater> createTheater(@Valid @RequestBody Theater theater){
-        return ResponseEntity.ok().body(theaterService.createTheater(theater));
+    public ResponseEntity<TheaterDto> createTheater(@Valid @RequestBody TheaterDto theaterDto){
+        return ResponseEntity.ok().body(theaterService.createTheater(theaterDto));
     }
 
     @PutMapping (value = "/{id}")
-    ResponseEntity<Theater> updateTheater(@PathVariable("id") Long id, @Valid @RequestBody Theater theater){
-        return ResponseEntity.ok().body(theaterService.updateTheater(id,theater));
+    ResponseEntity<TheaterDto> updateTheater(@PathVariable("id") Long id, @Valid @RequestBody TheaterDto theaterDto){
+        return ResponseEntity.ok().body(theaterService.updateTheater(id,theaterDto));
     }
 
     @DeleteMapping("/{id}")
