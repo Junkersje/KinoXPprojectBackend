@@ -7,4 +7,4 @@ public enum MovieGenre {
     SCIENCEFICTION,
     COMEDY
 
-    }
+}

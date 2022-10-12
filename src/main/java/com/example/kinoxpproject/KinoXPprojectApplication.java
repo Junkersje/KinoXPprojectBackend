@@ -53,13 +53,13 @@ public class KinoXPprojectApplication {
             //add movies
             String movie1Description = "John Wick 5 er efterfølgeren til den ikke eksisterende 4er, hvor makkeren bliver genoplivet for tredje gang";
             String movie2Description = "Børnebogen filmatiseret";
-            movies.add(new Movie("John Wick 5", "2t 22m", MovieGenre.ACTION, 16, movie1Description, "d. 24.dec : 20:00", theaters.get(0), true));
-            movies.add(new Movie("John Wick 6", "1t 05m", MovieGenre.ACTION, 17, movie2Description, "d. 23.dec : 20:00", theaters.get(0), true));
-            movies.add(new Movie("J. Leth biografi", "0t 69m", MovieGenre.COMEDY, 18, movie2Description, "d. 2.feb : 23:00", theaters.get(1), true));
+            movies.add(new Movie("John Wick 5", "2t 22m", MovieGenre.ACTION, 16, "https://www.nfbio.dk/sites/nfbio.dk/files/styles/movie_poster/public/movie-posters/HO00002857_104360.jpg?itok=pRMFGS5R", movie1Description, "d. 24.dec : 20:00", theaters.get(0), true));
+            movies.add(new Movie("John Wick 6", "1t 05m", MovieGenre.ACTION, 17, "https://www.nfbio.dk/sites/nfbio.dk/files/styles/movie_poster/public/media-images/2022-09/Amsterdam_Payoff_Poster_68%2C5x101%2C5_DK_72dpi_0.jpg?itok=yX9_nT_-", movie2Description, "d. 23.dec : 20:00", theaters.get(0), true));
+            movies.add(new Movie("J. Leth biografi", "0t 69m", MovieGenre.COMEDY, 18,"https://www.nfbio.dk/sites/nfbio.dk/files/styles/movie_poster/public/movie-posters/HO00002845_104348.jpg?itok=jNJskf23", movie2Description, "d. 2.feb : 23:00", theaters.get(1), true));
 
             //test movie for sal 3
             String testMovieDescription = "Ligegyldigt";
-            movies.add(new Movie("titel", "10m", MovieGenre.HORROR, 23, testMovieDescription, "dagens dato", theaters.get(2), true));
+            movies.add(new Movie("titel", "10m", MovieGenre.HORROR, 23,"https://i.imgur.com/KQSRFWA.jpg", testMovieDescription, "dagens dato", theaters.get(2), true));
             movieRepository.saveAll(movies);
 
             final List<Ticket> ticketsForSal3 = new ArrayList<>();

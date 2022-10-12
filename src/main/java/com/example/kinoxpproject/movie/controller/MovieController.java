@@ -29,12 +29,10 @@ public class MovieController {
         return ResponseEntity.ok().body(movieService.findMovieById(id));
     }
 
-
     @GetMapping("/availabletickets/{id}")
     public ResponseEntity<Boolean> checkAvailabletickets(@PathVariable("id") Long id){
         return ResponseEntity.ok().body(movieService.checkTicketsAvailable(id));
     }
-
 
     @PostMapping
     public ResponseEntity<MovieDto> createMovie(@Valid @RequestBody MovieDto movieDto){
@@ -51,4 +49,6 @@ public class MovieController {
          movieService.deleteMovie(id);
          return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 }
