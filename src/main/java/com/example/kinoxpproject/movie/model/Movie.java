@@ -34,11 +34,12 @@ public class Movie {
 
     private boolean ticketsAvailable;
 
-    public Movie(String title, String playTime, MovieGenre movieGenre, int PGRating, String description, String date, Theater theater, boolean ticketsAvailable) {
+    public Movie(String title, String playTime, MovieGenre movieGenre, int PGRating, String imgURL, String description, String date, Theater theater, boolean ticketsAvailable) {
         this.title = title;
         this.playTime = playTime;
         this.movieGenre = movieGenre;
         this.PGRating = PGRating;
+        this.imgURL = imgURL;
         this.description = description;
         this.date = date;
         this.theater = theater;
