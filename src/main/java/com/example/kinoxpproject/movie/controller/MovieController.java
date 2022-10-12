@@ -32,7 +32,6 @@ public class MovieController {
 
     @GetMapping("/availabletickets/{id}")
     public ResponseEntity<Boolean> checkAvailabletickets(@PathVariable("id") Long id){
-
         return ResponseEntity.ok().body(movieService.checkTicketsAvailable(id));
     }
 
