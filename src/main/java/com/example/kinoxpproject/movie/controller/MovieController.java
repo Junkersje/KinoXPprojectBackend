@@ -34,7 +34,7 @@ public class MovieController {
         return ResponseEntity.ok().body(movieService.checkTicketsAvailable(id));
     }
 
-    @PostMapping("/addMovie")
+    @PostMapping
     public ResponseEntity<MovieDto> createMovie(@Valid @RequestBody MovieDto movieDto){
         return ResponseEntity.ok().body(movieService.createMovie(movieDto));
     }

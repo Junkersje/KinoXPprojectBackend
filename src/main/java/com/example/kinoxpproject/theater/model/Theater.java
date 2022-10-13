@@ -11,7 +11,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class Theater {
 
     @Id
@@ -27,4 +26,5 @@ public class Theater {
         this.numberOfSeats = numberOfSeats;
         this.theaterNumber = theaterNumber;
     }
+
 }
