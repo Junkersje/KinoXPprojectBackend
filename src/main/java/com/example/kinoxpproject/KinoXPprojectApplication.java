@@ -30,8 +30,38 @@ public class KinoXPprojectApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(KinoXPprojectApplication.class, args);
+
+
+
+    }
+    /*
+    @Bean
+    public CommandLineRunner importData(MovieRepository movieRepository,
+                                        ReservationRepository reservationRepository,
+                                        TheaterRepository theaterRepository,
+                                        TicketRepository ticketRepository) {
+        return (args -> {
+            final List<Theater> theaters = new ArrayList<>();
+
+            theaters.add(new Theater(240, 1));
+            theaters.add(new Theater(400, 2));
+            theaterRepository.saveAll(theaters);
+
+            final List<Movie> movies = new ArrayList<>();
+            String movie1Description = "John Wick 5 er efterfølgeren til den ikke eksisterende 4er, hvor makkeren bliver genoplivet for tredje gang";
+            movies.add(new Movie("John Wick 5", "2t 22m", MovieGenre.ACTION, 16, "https://www.nfbio.dk/sites/nfbio.dk/files/styles/movie_poster/public/movie-posters/HO00002857_104360.jpg?itok=pRMFGS5R", movie1Description, "d. 24.dec : 20:00", theaters.get(0), true));
+            movieRepository.saveAll(movies);
+
+
+
+        });
     }
 
+     */
+
+
+
+            /*
     @Bean
     public CommandLineRunner importData(MovieRepository movieRepository,
                                         ReservationRepository reservationRepository,
@@ -94,5 +124,7 @@ public class KinoXPprojectApplication {
 
         });
     }
+ */
+
 
 }
