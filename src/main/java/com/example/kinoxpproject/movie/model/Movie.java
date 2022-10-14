@@ -8,8 +8,6 @@ import lombok.*;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -22,11 +20,11 @@ public class Movie {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private String playTime;
+    private String play_time;
     @Enumerated(EnumType.STRING)
-    private MovieGenre movieGenre;
-    private int PGRating;
-    private String imgURL;
+    private MovieGenre movie_genre;
+    private int pgrating;
+    private String imgurl;
     private String description;
     private String date;
 
@@ -34,19 +32,19 @@ public class Movie {
     @ManyToOne
     @JoinColumn(name = "theater_id")
     @Nullable
-    private Theater theater;
+    private Theater theater_id;
 
-    private boolean ticketsAvailable;
+    private boolean tickets_available;
 
-    public Movie(String title, String playTime, MovieGenre movieGenre, int PGRating, String imgURL, String description, String date, Theater theater, boolean ticketsAvailable) {
+    public Movie(String title, String play_time, MovieGenre movie_genre, int pgrating, String imgurl, String description, String date, Theater theater_id, boolean tickets_available) {
         this.title = title;
-        this.playTime = playTime;
-        this.movieGenre = movieGenre;
-        this.PGRating = PGRating;
-        this.imgURL = imgURL;
+        this.play_time = play_time;
+        this.movie_genre = movie_genre;
+        this.pgrating = pgrating;
+        this.imgurl = imgurl;
         this.description = description;
         this.date = date;
-        this.theater = theater;
-        this.ticketsAvailable = ticketsAvailable;
+        this.theater_id = theater_id;
+        this.tickets_available = tickets_available;
     }
 }

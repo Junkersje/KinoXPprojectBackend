@@ -19,7 +19,7 @@ public class Theater {
     private int numberOfSeats;
     private int theaterNumber;
 
-    @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "theater_id", cascade = CascadeType.ALL)
     List<Movie> movies = new ArrayList<>();
 
     public Theater(int numberOfSeats, int theaterNumber) {
