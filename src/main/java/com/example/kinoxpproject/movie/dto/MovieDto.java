@@ -17,13 +17,12 @@ public class MovieDto {
 
     private Long id;
     private String title;
-    private String playTime;
-    private MovieGenre movieGenre;
-    private int PGRating;
-    private String imgURL;
+    private String play_time;
+    private MovieGenre movie_genre;
+    private int pgrating;
+    private String imgurl;
     private String description;
     private String date;
-    private boolean ticketsAvailable;
-    @JsonIgnore
-    private Theater theater;
+    private boolean tickets_available;
+    private Theater theater_id;
 }
