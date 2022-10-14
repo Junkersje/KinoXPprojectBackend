@@ -5,6 +5,7 @@ package com.example.kinoxpproject.movie.model;
 import com.example.kinoxpproject.theater.model.Theater;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class Movie {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "theater_id")
+    @Nullable
     private Theater theater;
 
     private boolean ticketsAvailable;
