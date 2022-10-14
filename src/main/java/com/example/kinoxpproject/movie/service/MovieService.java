@@ -58,7 +58,7 @@ public class MovieService {
 
     public boolean checkTicketsAvailable(Long id){
         MovieDto tempMovie = findMovieById(id);
-        return ticketService.findAllTicketsForMovieID(id).size() < tempMovie.getTheater().getNumberOfSeats();
+        return ticketService.findAllTicketsForMovieID(id).size() < tempMovie.getTheater_id().getNumberOfSeats();
     }
 
 
